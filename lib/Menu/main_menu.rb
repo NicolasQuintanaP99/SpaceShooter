@@ -2,6 +2,10 @@ require_relative 'menu_option'
 class MainMenu
 OPTIONS_MARGIN_TOP = 200
 MARGIN_INTERNAL_Y = 80
+OPTIONS = {
+  play: 0,
+  exit: 1
+}
 
   def initialize(window)
     @window = window
@@ -12,18 +16,26 @@ MARGIN_INTERNAL_Y = 80
       option_y = OPTIONS_MARGIN_TOP + (index * MARGIN_INTERNAL_Y)
       @options << MenuOption.new(text, option_y)
     end
+    @current_option = OPTIONS[:play]
   end
 
   def draw
     @title.draw(@x,0,0)
-    @options.each do |objetos|
-      objetos.draw
+    @options.each do |option|
+      is_selected = option == @options[@current_option]
+      option.draw(is_selected)
     end
   end
 
   def button_down(id)
     if id == Gosu::KbEscape
       @window.close
+    end
+    if id == Gosu::KbW
+      @current_option = OPTIONS[:play]
+    end
+    if id == Gosu::KbS
+      @current_option = OPTIONS[:exit]
     end
   end
 

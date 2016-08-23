@@ -2,6 +2,7 @@ module Utils
 
   FONT_SIZE_BIG = 90
   TEXT_COLOR_LIGHT = Gosu::Color.new(255 * 0.30, 0, 187, 51)
+  TEXT_COLOR = Gosu::Color.new(255, 0, 187, 51)
   def self.default_font
     'media/fonts/kenvector_future_thin.ttf'
   end

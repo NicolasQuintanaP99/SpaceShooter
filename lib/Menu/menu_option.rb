@@ -5,8 +5,9 @@ def initialize(text, option_y)
   @y = option_y
 end
 
-def draw
-  @image.draw(@x, @y, 0, 1, 1, Utils::TEXT_COLOR_LIGHT)
+def draw(selected)
+  color = selected ? Utils::TEXT_COLOR : Utils::TEXT_COLOR_LIGHT
+  @image.draw(@x, @y, 0, 1, 1, color)
 end
 
 end
