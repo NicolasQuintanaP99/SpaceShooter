@@ -28,15 +28,35 @@ OPTIONS = {
   end
 
   def button_down(id)
-    if id == Gosu::KbEscape
+    case id
+    when Gosu::KbEscape
       @window.close
+    when Gosu::KbW
+      move_dif_option!
+    when Gosu::KbS
+      move_dif_option!
+    when Gosu::KbUp
+      move_dif_option!
+    when Gosu::KbDown
+      move_dif_option!
     end
-    if id == Gosu::KbW
-      @current_option = OPTIONS[:play]
-    end
-    if id == Gosu::KbS
-      @current_option = OPTIONS[:exit]
-    end
+
+    # if id == Gosu::KbEscape
+    #   @window.close
+    # end
+    # if id == Gosu::KbW
+    #   @current_option = OPTIONS[:play]
+    # end
+    # if id == Gosu::KbS
+    #   @current_option = OPTIONS[:exit]
+    # end
   end
 
+  def move_dif_option!
+    if @current_option == OPTIONS[:play]
+      @current_option = OPTIONS[:exit]
+    else
+      @current_option = OPTIONS[:play]
+    end
+  end
 end
