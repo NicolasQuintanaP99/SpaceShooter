@@ -41,6 +41,8 @@ OPTIONS = {
       move_dif_option!
     when Gosu::KbSpace
       select_option!
+    when Gosu::KbEnter
+      select_option!
     end
   end
 
@@ -55,7 +57,7 @@ OPTIONS = {
   def select_option!
     case @current_option
     when OPTIONS[:play]
-
+      @window.show_level!
     when OPTIONS[:exit]
       @window.close
     end
