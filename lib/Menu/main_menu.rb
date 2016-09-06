@@ -40,16 +40,6 @@ OPTIONS = {
     when Gosu::KbDown
       move_dif_option!
     end
-
-    # if id == Gosu::KbEscape
-    #   @window.close
-    # end
-    # if id == Gosu::KbW
-    #   @current_option = OPTIONS[:play]
-    # end
-    # if id == Gosu::KbS
-    #   @current_option = OPTIONS[:exit]
-    # end
   end
 
   def move_dif_option!
