@@ -1,0 +1,4 @@
+class Background
+
+  def initialize
+    

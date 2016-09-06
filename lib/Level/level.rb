@@ -4,10 +4,12 @@ class Level
   def initialize(window)
     @window = window
     @player_ship = PlayerShip.new
+    @background = background.new
   end
 
   def draw
     @player_ship.draw
+    @background.draw
   end
 
   def button_down(id)
