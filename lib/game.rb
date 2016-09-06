@@ -16,6 +16,10 @@ class Game < Gosu::Window
     @current_screen.draw
   end
 
+  def update
+    @current_screen.update
+  end
+
   def button_down(id)
     @current_screen.button_down(id)
   end

@@ -27,6 +27,10 @@ OPTIONS = {
     end
   end
 
+  def update
+
+  end
+
   def button_down(id)
     case id
     when Gosu::KbEscape
