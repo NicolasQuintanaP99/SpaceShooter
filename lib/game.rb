@@ -8,7 +8,8 @@ class Game < Gosu::Window
   def initialize
     super(SCREEN_WIDTH, SCREEN_HEIGHT, fullscreen: false)
     self.caption = 'Space Shooter'
-    @current_screen = MainMenu.new(self)
+    @main_menu = MainMenu.new(self)
+    @current_screen = @main_menu
   end
 
   def draw
@@ -24,6 +25,6 @@ class Game < Gosu::Window
   end
 
   def show_main_menu!
-    @current_screen = MainMenu.new(self)
+    @current_screen = @main_menu
   end
 end
