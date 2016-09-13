@@ -1,5 +1,6 @@
+require_relative 'laser'
 class PlayerShip
-
+attr_accessor :y, :x
   def initialize
     @image = Gosu::Image.new('media/images/player/ship.png')
     @y = Utils.center_y(@image)
@@ -19,5 +20,10 @@ class PlayerShip
     if @y + 5 + @image.height < Game::SCREEN_HEIGHT
       @y += 5
     end
+  end
+
+  def shoot
+      Gosu::Sample.new('media/sounds/laser.ogg').play
+      Laser.new(@image.width, @y + @image.height/2)
   end
 end
