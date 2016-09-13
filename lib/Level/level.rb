@@ -1,5 +1,6 @@
 require_relative 'player_ship'
 require_relative 'background'
+require_relative 'score'
 class Level
 
   def initialize(window)
@@ -7,11 +8,13 @@ class Level
     @player_ship = PlayerShip.new
     @background = Background.new
     @lasers = []
+    @score = Score.new
   end
 
   def draw
     @player_ship.draw
     @background.draw
+    @score.draw
     unless @lasers.empty? #a no ser que el array lasers este vacio
       @lasers.each do |laser| #utilizar singulares dentro del each
         laser.draw
