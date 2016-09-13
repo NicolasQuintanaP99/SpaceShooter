@@ -14,4 +14,8 @@ class Laser
   def move! #nombrarlo con ! ya que modifica la pantalla
     @x += 10
   end
+
+  def is_out?
+    @x > Game::SCREEN_WIDTH
+  end
 end

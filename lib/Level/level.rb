@@ -12,7 +12,7 @@ class Level
   def draw
     @player_ship.draw
     @background.draw
-    unless @lasers.nil? #a no ser que el array lasers este vacio
+    unless @lasers.empty? #a no ser que el array lasers este vacio
       @lasers.each do |laser| #utilizar singulares dentro del each
         laser.draw
       end
@@ -31,10 +31,11 @@ class Level
 
   def update
     @background.scroll!
-    unless @lasers.nil?
+    unless @lasers.empty?
       @lasers.each do |laser|
         laser.move!
       end
+      @lasers.reject! { |laser| laser.is_out? }
     end
     if @window.button_down?(Gosu::KbW )
       @player_ship.move_up!

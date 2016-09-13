@@ -1,9 +1,10 @@
 require_relative 'laser'
 class PlayerShip
-attr_accessor :y, :x
+
   def initialize
     @image = Gosu::Image.new('media/images/player/ship.png')
     @y = Utils.center_y(@image)
+    @laser_sound = Gosu::Sample.new('media/sounds/laser.ogg')
   end
 
   def draw
@@ -23,7 +24,7 @@ attr_accessor :y, :x
   end
 
   def shoot
-      Gosu::Sample.new('media/sounds/laser.ogg').play
+      @laser_sound.play
       Laser.new(@image.width, @y + @image.height/2)
   end
 end
