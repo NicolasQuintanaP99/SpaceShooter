@@ -44,8 +44,12 @@ class Level
     unless @lasers.empty?
       @lasers.each do |laser|
         laser.move!
+        if laser.was_hit?(@enemy_ships)
+          laser.destroy!
+        end
       end
-      @lasers.reject! { |laser| laser.is_out? }
+
+      @lasers.reject! { |laser| laser.is_out? or laser.destroyed? }
     end
     if @window.button_down?(Gosu::KbW )
       @player_ship.move_up!
@@ -59,9 +63,13 @@ class Level
     unless @enemy_ships.empty?
       @enemy_ships.each do |enemy|
         enemy.move!
+        if enemy.was_hit?(@lasers)
+          enemy.destroy!
+        end
       end
     end
     create_enemy_ship
+    @enemy_ships.reject! { |ship| ship.is_out? or ship.destroyed?}
   end
 
   def create_enemy_ship
